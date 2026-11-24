@@ -167,11 +167,11 @@ details.more ul{margin-top:8px}
 .fp p,.fp h3{max-width:calc(100% - 40px)}
 .minor{list-style:none;border-top:1px solid var(--rule)}
 .minor li{border-bottom:1px solid var(--rule)}
-.minor a{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr) auto;gap:20px;padding:16px 4px;text-decoration:none;color:var(--text);align-items:baseline}
+.minor a{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr) 5.5em;gap:20px;padding:16px 4px;text-decoration:none;color:var(--text);align-items:baseline}
 .minor a:hover{background:var(--paper)}
 .minor b{font-weight:600}
 .minor span{color:var(--muted);font-size:.95rem}
-.minor em{font-style:normal;font-size:.85rem;color:var(--soft)}
+.minor em{text-align:right;font-style:normal;font-size:.85rem;color:var(--soft)}
 @media(max-width:760px){.feat{grid-template-columns:1fr}.minor a{grid-template-columns:1fr;gap:2px}}
 
 /* writing */
@@ -183,6 +183,15 @@ details.more ul{margin-top:8px}
 .art p{color:var(--muted)}
 #writing .minor a:hover{background:var(--paper)}
 @media(max-width:760px){.series{grid-template-columns:1fr}}
+
+.yt{margin-top:56px;border-top:1px solid var(--rule);padding-top:44px}
+.yt-head{display:grid;grid-template-columns:56px minmax(0,1fr) auto;gap:22px;align-items:center;margin-bottom:24px}
+.yt-head svg{width:56px}
+.yt-head h3{font:400 1.9rem/1.1 var(--serif);margin-bottom:6px}
+.yt-head p{color:var(--muted);max-width:40em}
+.btn.dark{background:var(--ink);color:#fff;border-color:var(--ink);white-space:nowrap}
+.btn.dark:hover{background:var(--ink2)}
+@media(max-width:760px){.yt-head{grid-template-columns:44px minmax(0,1fr)}.yt-head .btn{grid-column:1/-1;justify-self:start}}
 
 /* events */
 .event{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:48px;align-items:center;margin-bottom:80px}
@@ -231,7 +240,7 @@ footer{background:var(--ink);color:#7f8ca3;font-size:.88rem;padding:26px 0;borde
   <div class="wrap">
     <a class="mark" href="#top">Siwar Bel Haj Mohamed</a>
     <nav aria-label="Sections">
-      <a href="#about">About</a><a href="#career">Career</a><a href="#certifications">Certifications</a><a href="#projects">Projects</a><a href="#writing">Writing</a><a href="#events">Events</a><a href="#contact">Contact</a>
+      <a href="#about">About</a><a href="#career">Career</a><a href="#certifications">Certifications</a><a href="#projects">Projects</a><a href="#writing">Writing &amp; videos</a><a href="#events">Events</a><a href="#contact">Contact</a>
     </nav>
   </div>
 </header>
@@ -489,7 +498,7 @@ footer{background:var(--ink);color:#7f8ca3;font-size:.88rem;padding:26px 0;borde
 
 <section id="writing" class="alt">
   <div class="wrap">
-    <div class="sh"><h2>Writing</h2><p>Articles on Medium about Wi-Fi, embedded Linux, AI in networking, and lessons from my career.</p></div>
+    <div class="sh"><h2>Writing and videos</h2><p>Articles on Medium about Wi-Fi, embedded Linux, AI in networking and my career, and videos that explain tech simply on YouTube.</p></div>
     <div class="series">
       <a class="art big" href="https://medium.com/@sbelhajmouhamed/teaching-my-home-wi-fi-to-think-why-im-adding-ai-to-easymesh-382fe826770a" target="_blank" rel="noopener">
         <span class="k">Series: AI for EasyMesh · Part 1 · Aug 2026</span>
@@ -511,6 +520,24 @@ footer{background:var(--ink);color:#7f8ca3;font-size:.88rem;padding:26px 0;borde
       <li><a href="https://medium.com/@sbelhajmouhamed/how-to-succeed-in-your-interview-8c7b2194d01a" target="_blank" rel="noopener"><b>How to succeed in your interview</b><span>A guide from someone who has sat on both sides of the table</span><em>Apr 2026</em></a></li>
     </ul>
     <p style="margin-top:22px"><a href="https://medium.com/@sbelhajmouhamed" target="_blank" rel="noopener">Follow me on Medium</a></p>
+
+    <div class="yt">
+      <div class="yt-head">
+        <svg viewBox="0 0 48 34" aria-hidden="true"><rect width="48" height="34" rx="9" fill="#ff0033"/><path d="M19 10v14l12-7z" fill="#fff"/></svg>
+        <div>
+          <h3>My Tech Diary on YouTube</h3>
+          <p>Short videos that explain technology through everyday stories: how AI works, how to spot a deepfake, and how Wi-Fi really works in the <em>Crack the Air</em> series.</p>
+        </div>
+        <a class="btn dark" href="https://www.youtube.com/@my_techdiary" target="_blank" rel="noopener">Watch the channel</a>
+      </div>
+      <ul class="minor">
+        <li><a href="https://www.youtube.com/watch?v=j63sn8QhJ8A" target="_blank" rel="noopener"><b>How to spot a deepfake</b><span>She video called me, but it wasn't her face. Episode 9</span><em>AI</em></a></li>
+        <li><a href="https://www.youtube.com/watch?v=CoptRLUXJ8c" target="_blank" rel="noopener"><b>Crack the Air: MLO overview</b><span>Wi-Fi 7 Multi-Link Operation explained</span><em>Wi-Fi</em></a></li>
+        <li><a href="https://www.youtube.com/@my_techdiary/videos" target="_blank" rel="noopener"><b>Crack the Air: how Wi-Fi really works</b><span>Wi-Fi explained simply</span><em>Wi-Fi</em></a></li>
+        <li><a href="https://www.youtube.com/watch?v=EFkbmYCkAdI" target="_blank" rel="noopener"><b>How does Netflix know what you want to watch?</b><span>Recommendation AI explained through a story</span><em>AI</em></a></li>
+        <li><a href="https://www.youtube.com/watch?v=jAWyrW4D5zo" target="_blank" rel="noopener"><b>What is AI?</b><span>How does your phone know what you want?</span><em>AI</em></a></li>
+      </ul>
+    </div>
   </div>
 </section>
 
@@ -591,6 +618,7 @@ footer{background:var(--ink);color:#7f8ca3;font-size:.88rem;padding:26px 0;borde
       <a class="btn" href="https://www.linkedin.com/in/siwar-bel-haj-mohamed/" target="_blank" rel="noopener">LinkedIn</a>
       <a class="btn" href="https://github.com/siwarBM" target="_blank" rel="noopener">GitHub</a>
       <a class="btn" href="https://medium.com/@sbelhajmouhamed" target="_blank" rel="noopener">Medium</a>
+      <a class="btn" href="https://www.youtube.com/@my_techdiary" target="_blank" rel="noopener">YouTube</a>
     </div>
   </div>
 </section>
