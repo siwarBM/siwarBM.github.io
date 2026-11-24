@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Siwar Bel Haj Mohamed · Wi-Fi Engineer</title>
+<meta name="description" content="Siwar Bel Haj Mohamed, Senior Engineer at Qualcomm. Embedded Linux and C/C++ engineer working on Wi-Fi for broadband products, CWNA certified, based in Paris.">
+<meta property="og:title" content="Siwar Bel Haj Mohamed · Wi-Fi Engineer">
+<meta property="og:description" content="Senior Engineer at Qualcomm. Five Wi-Fi generations, from Wi-Fi 5 to Wi-Fi 8.">
+<meta property="og:image" content="img/profile.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230f1b2d'/%3E%3Cpath d='M6 13a14 14 0 0 1 20 0M10 17a8.5 8.5 0 0 1 12 0M14 21a3 3 0 0 1 4 0' stroke='%232f6bff' stroke-width='2.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+/*
+VOICE: calm, precise, senior engineer; confident without hype.
+IDEA: a Wi-Fi channel plan. Her career is drawn as bands across the years, coloured by the Wi-Fi generation she worked on.
+PICTURE: portrait at the centre of radiating wavefronts in the hero; the generation chart below it.
+COLOUR and TYPE: ink #0f1b2d, paper #f5f7fa, generation colours used only as data; Instrument Serif for the name, Instrument Sans for everything else.
+LAYOUT: ink hero band, then a light page with wide left-aligned columns and rules, no card grid.
+*/
+:root{
+  --ink:#0f1b2d; --ink2:#1b2a42; --paper:#f5f7fa; --white:#fff; --rule:#dfe4ec;
+  --text:#18202d; --muted:#5b6678; --soft:#9aa6b8; --link:#2f6bff;
+  --w5:#e39b2d; --w6:#0e9f8e; --w6e:#2f6bff; --w7:#1238c9; --w8:#c2357a;
+  --serif:"Instrument Serif",Georgia,serif; --sans:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;min-width:0}
+html{overflow-x:clip;scroll-behavior:smooth;scroll-padding-top:72px}
+body{font:17px/1.6 var(--sans);color:var(--text);background:var(--paper);overflow-x:clip;-webkit-font-smoothing:antialiased}
+a{color:var(--link);text-decoration-thickness:1px;text-underline-offset:3px}
+img{display:block;max-width:100%}
+.wrap{max-width:1180px;margin:0 auto;padding:0 max(5vw,20px)}
+:focus-visible{outline:2px solid var(--link);outline-offset:3px;border-radius:4px}
+
+/* header */
+header.top{position:sticky;top:0;z-index:20;background:rgba(15,27,45,.92);backdrop-filter:blur(12px);color:#fff}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:60px;flex-wrap:wrap}
+.mark{font:400 1.35rem var(--serif);color:#fff;text-decoration:none}
+header nav{display:flex;gap:4px;flex-wrap:wrap}
+header nav a{color:#c3cde0;text-decoration:none;font-size:.92rem;padding:8px 10px;border-radius:8px}
+header nav a:hover{color:#fff;background:rgba(255,255,255,.08)}
+@media(max-width:860px){header nav{display:none}}
+
+/* hero */
+.hero{background:var(--ink);color:#fff;position:relative;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:40px;align-items:center;padding-top:72px;padding-bottom:64px}
+.hero .role{color:#9fb3d9;font-size:1rem;margin-bottom:18px}
+.hero h1{font:400 clamp(3.2rem,7.4vw,6.2rem)/.98 var(--serif);letter-spacing:-.01em;margin-bottom:26px;text-wrap:balance}
+.hero p.lead{font-size:1.15rem;color:#d5dcea;max-width:34em;margin-bottom:32px}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;min-height:46px;padding:0 22px;border-radius:999px;font-weight:600;font-size:.97rem;text-decoration:none;border:1px solid rgba(255,255,255,.28);color:#fff}
+.btn:hover{background:rgba(255,255,255,.08)}
+.btn.solid{background:#fff;color:var(--ink);border-color:#fff}
+.btn.solid:hover{background:#e7ecf5}
+
+.signal{position:relative;aspect-ratio:1;width:min(100%,460px);justify-self:center}
+.signal svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.signal circle.wave{fill:none;stroke:#5d86ff;stroke-width:1.2;transform-origin:50% 50%;opacity:0;animation:wave 4.8s cubic-bezier(.2,.6,.3,1) infinite}
+.signal circle.wave:nth-child(2){animation-delay:1.2s}
+.signal circle.wave:nth-child(3){animation-delay:2.4s}
+.signal circle.wave:nth-child(4){animation-delay:3.6s}
+@keyframes wave{0%{transform:scale(.42);opacity:.9}100%{transform:scale(1.18);opacity:0}}
+.signal .ring{fill:none;stroke:rgba(255,255,255,.1)}
+.signal .portrait{position:absolute;inset:21%;border-radius:50%;overflow:hidden;box-shadow:0 0 0 6px var(--ink),0 0 0 7px rgba(255,255,255,.25)}
+.signal .portrait img{width:100%;height:100%;object-fit:cover}
+@media(prefers-reduced-motion:reduce){.signal circle.wave{animation:none;opacity:.25;transform:scale(.8)}}
+
+.facts{border-top:1px solid rgba(255,255,255,.12)}
+.facts .wrap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));padding-top:22px;padding-bottom:26px;gap:20px}
+.facts b{display:block;font:400 2rem/1.1 var(--serif)}
+.facts span{color:#9fb3d9;font-size:.9rem}
+@media(max-width:860px){
+  .hero .wrap{grid-template-columns:1fr;padding-top:40px}
+  .signal{order:-1;width:min(78%,340px)}
+  .facts .wrap{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+
+/* sections */
+section{padding:clamp(64px,8vw,110px) 0;border-bottom:1px solid var(--rule)}
+section.alt{background:var(--white)}
+.sh{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:40px;margin-bottom:44px;align-items:end}
+h2{font:400 clamp(2.2rem,4.2vw,3.2rem)/1.05 var(--serif);text-wrap:balance}
+.sh p{color:var(--muted);max-width:36em}
+@media(max-width:860px){.sh{grid-template-columns:1fr;gap:14px}}
+h3{font-size:1.15rem;line-height:1.3;font-weight:600}
+
+/* about */
+.about{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:56px}
+.about p{margin-bottom:16px;max-width:38em}
+.about .path{display:flex;flex-direction:column;gap:0;border-left:2px solid var(--rule);padding-left:22px;margin:8px 0 22px}
+.about .path li{list-style:none;padding:6px 0;position:relative;color:var(--muted)}
+.about .path li b{color:var(--text);font-weight:600}
+.about .path li::before{content:"";position:absolute;left:-29px;top:15px;width:12px;height:12px;border-radius:50%;background:var(--paper);border:2px solid var(--soft)}
+.about .path li:last-child::before{background:var(--link);border-color:var(--link)}
+blockquote{font:italic 400 1.7rem/1.25 var(--serif);color:var(--ink);border-top:1px solid var(--rule);padding-top:22px}
+.side img{border-radius:16px;aspect-ratio:3/4;object-fit:cover;width:100%}
+.side figcaption{font-size:.88rem;color:var(--muted);margin-top:10px}
+@media(max-width:860px){.about{grid-template-columns:1fr}.side{max-width:380px}}
+
+/* generation chart */
+.chart{border:1px solid var(--rule);border-radius:18px;background:var(--white);padding:28px 28px 20px}
+.legend{display:flex;flex-wrap:wrap;gap:8px 20px;margin-bottom:26px;font-size:.92rem;color:var(--muted)}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:7px;vertical-align:-1px}
+.row{display:grid;grid-template-columns:200px minmax(0,1fr);gap:18px;align-items:center;padding:9px 0;border-top:1px solid #eef1f5}
+.row .who b{display:block;font-weight:600}
+.row .who span{font-size:.86rem;color:var(--muted)}
+.track{position:relative;height:34px}
+.bar{position:absolute;top:0;bottom:0;border-radius:8px;display:flex;overflow:hidden;background:#e9edf3}
+.bar i{flex:1}
+.bar.plain{background:repeating-linear-gradient(135deg,#e2e7ef 0 6px,#eef1f6 6px 12px)}
+.bar.live::after{content:"";position:absolute;right:0;top:0;bottom:0;width:22px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.65))}
+.axis{display:grid;grid-template-columns:200px minmax(0,1fr);gap:18px;margin-top:6px}
+.ticks{position:relative;height:22px;font-size:.82rem;color:var(--muted)}
+.ticks span{position:absolute;transform:translateX(-50%)}
+.chart .note{font-size:.86rem;color:var(--muted);margin-top:14px}
+@media(max-width:700px){.row,.axis{grid-template-columns:1fr;gap:6px}.axis>div:first-child{display:none}.chart{padding:20px 16px}}
+
+/* jobs */
+.jobs{margin-top:56px}
+.job{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:40px;padding:34px 0;border-top:1px solid var(--rule)}
+.job .meta .when{font-size:.92rem;color:var(--muted)}
+.job .meta .co{font:400 1.9rem/1.1 var(--serif);margin:4px 0 6px}
+.job .meta .gens{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.gen{font-size:.78rem;font-weight:600;color:#fff;padding:3px 9px;border-radius:6px}
+.job h3{margin-bottom:8px}
+.job .sum{color:var(--muted);margin-bottom:14px}
+.job ul{padding-left:20px}
+.job li{margin-bottom:6px}
+.job .cust{margin-top:16px;font-size:.95rem;color:var(--muted)}
+.job .cust b{color:var(--text)}
+details.more{margin-top:10px}
+details.more summary{cursor:pointer;color:var(--link);font-weight:600;font-size:.95rem;list-style:none;min-height:32px;display:inline-flex;align-items:center}
+details.more summary::-webkit-details-marker{display:none}
+details.more summary::after{content:"+";margin-left:8px;font-weight:400}
+details.more[open] summary::after{content:"–"}
+details.more ul{margin-top:8px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.tag{font-size:.82rem;padding:3px 10px;border-radius:999px;border:1px solid var(--rule);color:var(--muted);background:var(--white)}
+@media(max-width:860px){.job{grid-template-columns:1fr;gap:12px}}
+
+/* customers */
+.customers{font:400 clamp(1.5rem,2.6vw,2.1rem)/1.45 var(--serif);color:var(--ink);max-width:30em}
+.customers span{color:var(--soft)}
+
+/* certifications */
+.certs{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:48px;align-items:start}
+.certimg{border-radius:14px;border:1px solid var(--rule);box-shadow:0 30px 60px -30px rgba(15,27,45,.35);cursor:zoom-in;transform:rotate(-1.2deg)}
+.main-cert{padding:0 0 20px;margin-bottom:20px;border-bottom:1px solid var(--rule)}
+.main-cert .status{display:inline-block;font-size:.82rem;font-weight:600;padding:2px 10px;border-radius:999px;margin-bottom:6px}
+.ok{background:#e3f5ee;color:#0b7a55}.wip{background:#fff2dc;color:#9a5b00}
+.main-cert p{color:var(--muted);font-size:.95rem}
+.list{list-style:none}
+.list li{display:flex;justify-content:space-between;gap:16px;padding:9px 0;border-bottom:1px solid #eef1f5;font-size:.95rem}
+.list li span{color:var(--muted);text-align:right;white-space:nowrap}
+@media(max-width:860px){.certs{grid-template-columns:1fr}.certimg{transform:none}}
+
+/* projects */
+.feat{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-bottom:34px}
+.fp{display:block;text-decoration:none;color:inherit;background:var(--ink);color:#fff;border-radius:18px;padding:30px;position:relative;overflow:hidden;min-height:220px}
+.fp:hover{background:var(--ink2)}
+.fp .k{font-size:.88rem;color:#9fb3d9}
+.fp h3{font:400 1.9rem/1.15 var(--serif);margin:10px 0}
+.fp p{color:#d5dcea;max-width:30em}
+.fp svg{position:absolute;right:18px;top:18px;width:84px;height:84px;opacity:.28}
+.fp p,.fp h3{max-width:calc(100% - 40px)}
+.minor{list-style:none;border-top:1px solid var(--rule)}
+.minor li{border-bottom:1px solid var(--rule)}
+.minor a{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr) auto;gap:20px;padding:16px 4px;text-decoration:none;color:var(--text);align-items:baseline}
+.minor a:hover{background:var(--paper)}
+.minor b{font-weight:600}
+.minor span{color:var(--muted);font-size:.95rem}
+.minor em{font-style:normal;font-size:.85rem;color:var(--soft)}
+@media(max-width:760px){.feat{grid-template-columns:1fr}.minor a{grid-template-columns:1fr;gap:2px}}
+
+/* events */
+.event{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:48px;align-items:center;margin-bottom:80px}
+.event:last-child{margin-bottom:0}
+.event.flip .pics{order:2}
+.pics{display:grid;grid-template-columns:1.2fr 1fr;gap:12px;align-items:end}
+.pics img{border-radius:14px;width:100%;object-fit:cover;cursor:zoom-in}
+.pics img:first-child{aspect-ratio:3/4}
+.pics img:nth-child(2){aspect-ratio:4/5}
+.pics.single{grid-template-columns:1fr}
+.pics.single img{aspect-ratio:4/3;object-position:center 30%}
+.event .when{color:var(--muted);font-size:.95rem}
+.event h3{font:400 2.4rem/1.05 var(--serif);margin:6px 0 14px}
+.event p{max-width:32em}
+@media(max-width:860px){.event{grid-template-columns:1fr;gap:22px}.event.flip .pics{order:0}}
+
+/* education & skills */
+.three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:48px}
+.three h3{font:400 1.7rem var(--serif);margin-bottom:18px}
+.edu{margin-bottom:20px}
+.edu b{display:block;font-weight:600}
+.edu span{color:var(--muted);font-size:.95rem}
+.sk{margin-bottom:18px}
+.sk p{font-size:.9rem;color:var(--muted);margin-bottom:6px}
+.sk .tags{margin-top:0}
+@media(max-width:960px){.three{grid-template-columns:1fr;gap:36px}}
+
+/* contact */
+.contact{background:var(--ink);color:#fff;border:0;text-align:left}
+.contact h2{color:#fff;margin-bottom:18px}
+.contact p{color:#c3cde0;max-width:34em;margin-bottom:30px}
+.mail{font:400 clamp(1.6rem,4.4vw,3.2rem)/1.1 var(--serif);color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.35);overflow-wrap:anywhere}
+.mail:hover{border-color:#fff}
+.contact .actions{margin-top:36px}
+footer{background:var(--ink);color:#7f8ca3;font-size:.88rem;padding:26px 0;border-top:1px solid rgba(255,255,255,.08)}
+
+/* lightbox */
+#lb{position:fixed;inset:0;background:rgba(8,13,24,.94);display:none;align-items:center;justify-content:center;z-index:50;padding:24px;cursor:zoom-out}
+#lb.on{display:flex}
+#lb img{max-height:100%;border-radius:10px}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="#top">Siwar Bel Haj Mohamed</a>
+    <nav aria-label="Sections">
+      <a href="#about">About</a><a href="#career">Career</a><a href="#certifications">Certifications</a><a href="#projects">Projects</a><a href="#events">Events</a><a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <p class="role">Senior Engineer at Qualcomm · Paris</p>
+      <h1>Siwar Bel Haj Mohamed</h1>
+      <p class="lead">I help operators and device makers around the world bring Qualcomm Wi-Fi to their broadband products. Embedded Linux and C/C++ engineer, CWNA certified, now bringing AI into wireless connectivity.</p>
+      <div class="actions">
+        <a class="btn solid" href="#contact">Contact me</a>
+        <a class="btn" href="https://www.linkedin.com/in/siwar-bel-haj-mohamed/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="https://github.com/siwarBM" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+    <div class="signal" aria-hidden="true">
+      <svg viewBox="0 0 400 400">
+        <circle class="wave" cx="200" cy="200" r="196"/><circle class="wave" cx="200" cy="200" r="196"/><circle class="wave" cx="200" cy="200" r="196"/><circle class="wave" cx="200" cy="200" r="196"/>
+        <circle class="ring" cx="200" cy="200" r="150"/><circle class="ring" cx="200" cy="200" r="196"/>
+      </svg>
+      <div class="portrait"><img src="img/profile.jpg" alt=""></div>
+    </div>
+  </div>
+  <div class="facts">
+    <div class="wrap">
+      <div><b>5+ years</b><span>embedded Linux and networking</span></div>
+      <div><b>Wi-Fi 5 to 8</b><span>five generations worked on</span></div>
+      <div><b>15+</b><span>global customers supported</span></div>
+      <div><b>CWNA</b><span>wireless certification, CWNP</span></div>
+    </div>
+  </div>
+</div>
+
+<section id="about">
+  <div class="wrap about">
+    <div>
+      <div class="sh" style="grid-template-columns:1fr;margin-bottom:28px"><h2>Where software meets the radio</h2></div>
+      <p>I'm an embedded software engineer with more than five years of experience building and supporting Linux-based C/C++ systems for global telecom and networking companies.</p>
+      <p>At Qualcomm, I support customers worldwide on Wi-Fi solutions for broadband products: debugging complex issues, guiding technical integration and working with engineering teams to bring products to launch faster.</p>
+      <p>I also have hands-on AI experience, especially in natural language processing. I'm now bringing the two together, using AI in wireless systems to improve connectivity, diagnostics and network performance.</p>
+      <ul class="path">
+        <li><b>Telnet</b>, C/C++ developer on e-payment terminals for Ingenico</li>
+        <li><b>Sagemcom</b>, embedded software for Charter Communications gateways</li>
+        <li><b>Bouygues Telecom</b>, embedded Linux consultant on home routers</li>
+        <li><b>Qualcomm</b>, Senior Engineer on Wi-Fi for broadband</li>
+      </ul>
+      <blockquote>“If you risk nothing, then you risk everything.”</blockquote>
+    </div>
+    <figure class="side">
+      <img src="img/vienna.jpg" alt="Siwar in front of St. Stephen's Cathedral in Vienna" data-lb>
+      <figcaption>Vienna, October 2026, during Network X and the prpl Summit.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="career" class="alt">
+  <div class="wrap">
+    <div class="sh">
+      <h2>A career across five Wi&#8209;Fi generations</h2>
+      <p>Each bar is a role, coloured by the Wi-Fi standards I worked on there. From Wi-Fi 5 gateways in 2022 to presenting Wi-Fi 8 in 2026.</p>
+    </div>
+
+    <div class="chart">
+      <div class="legend" id="legend"></div>
+      <div id="rows"></div>
+      <div class="axis"><div></div><div class="ticks" id="ticks"></div></div>
+      <p class="note">Striped: e-payment software, before Wi-Fi.</p>
+    </div>
+
+    <div class="jobs">
+      <article class="job">
+        <div class="meta">
+          <div class="when">Oct 2025 – present · Paris</div>
+          <div class="co">Qualcomm</div>
+          <div class="gens"><span class="gen" style="background:var(--w7)">Wi-Fi 7</span><span class="gen" style="background:var(--w8)">Wi-Fi 8</span></div>
+        </div>
+        <div>
+          <h3>Senior Engineer</h3>
+          <p class="sum">Supporting key customers worldwide on Qualcomm Wi-Fi solutions for broadband products, with a focus on integration, debugging, performance, reliability and product readiness.</p>
+          <ul>
+            <li>Support global customers with Wi-Fi integration, feature bring-up and issue resolution.</li>
+            <li>Analyse logs, reproduce issues and debug connectivity problems, working with engineering teams to speed up fixes.</li>
+            <li>Presented Qualcomm Wi-Fi 8 at Network X 2026, and Wi-Fi 8 on prplOS at the prpl Summit 2026.</li>
+          </ul>
+          <details class="more"><summary>More about this role</summary>
+            <ul>
+              <li>Give technical guidance on Wi-Fi connectivity, networking standards and new product support.</li>
+              <li>Work with engineering teams to improve launch readiness, performance and reliability.</li>
+              <li>Take part in customer-facing technical sessions across Europe.</li>
+              <li>Use internal AI tools to improve debugging workflows and speed up root-cause analysis.</li>
+              <li>Completed a 3-week technical training programme on Qualcomm Wi-Fi systems in India.</li>
+            </ul>
+          </details>
+        </div>
+      </article>
+
+      <article class="job">
+        <div class="meta">
+          <div class="when">May 2024 – Oct 2025 · Paris</div>
+          <div class="co">Bouygues Telecom</div>
+          <div class="gens"><span class="gen" style="background:var(--w5)">Wi-Fi 5</span><span class="gen" style="background:var(--w6)">Wi-Fi 6</span><span class="gen" style="background:var(--w6e)">Wi-Fi 6E</span><span class="gen" style="background:var(--w7)">Wi-Fi 7</span></div>
+        </div>
+        <div>
+          <h3>Embedded Software Engineer, consultant with Astek</h3>
+          <p class="sum">Development and support of home router software for one of France's largest operators.</p>
+          <ul>
+            <li>Built middleware features in C, such as generating the Wi-Fi NVRAM configuration automatically from WAN detection.</li>
+            <li>Reproduced and fixed complex issues across Wi-Fi, TLS, SMB, USB, printing, firewall, VoIP, QoS, set-top boxes and Wake-on-LAN.</li>
+            <li>Improved security by updating supported TLS versions and disabling insecure OpenSSL settings.</li>
+          </ul>
+          <details class="more"><summary>More about this role</summary>
+            <ul>
+              <li>Network analysis with Wireshark and over-the-air captures.</li>
+              <li>Troubleshooting across Pixel, Samsung and Huawei phones and several set-top boxes.</li>
+              <li>Wrote and maintained automated TCL tests for unit, functional and regression testing.</li>
+              <li>Built custom packages with Makefiles; worked with Eclipse, AWS EC2, RTC and shell scripting.</li>
+            </ul>
+          </details>
+          <div class="tags"><span class="tag">Airties</span><span class="tag">Broadcom</span><span class="tag">C</span><span class="tag">TCL</span><span class="tag">Wireshark</span><span class="tag">WPS</span></div>
+        </div>
+      </article>
+
+      <article class="job">
+        <div class="meta">
+          <div class="when">Jun 2022 – Apr 2024 · Tunisia</div>
+          <div class="co">Sagemcom</div>
+          <div class="gens"><span class="gen" style="background:var(--w5)">Wi-Fi 5</span><span class="gen" style="background:var(--w6)">Wi-Fi 6</span><span class="gen" style="background:var(--w6e)">Wi-Fi 6E</span><span class="gen" style="background:var(--w7)">Wi-Fi 7</span></div>
+        </div>
+        <div>
+          <h3>Embedded Software &amp; Integration Engineer</h3>
+          <p class="sum">Four gateway products for Charter Communications in North America, one for each Wi-Fi standard from Wi-Fi 5 to Wi-Fi 7.</p>
+          <ul>
+            <li>Developed and maintained OpenSync middleware in C on Broadcom hardware.</li>
+            <li>Integrated open-source and kernel modules: Core Dump Manager, UPnP, Avahi, firmware upgrade, dhd-monitor, LED drivers and more.</li>
+            <li>Built a dedicated Linux test lab (DHCP server, PPTP VPN, Python Scapy) to reproduce customer scenarios exactly.</li>
+          </ul>
+          <details class="more"><summary>More about this role</summary>
+            <ul>
+              <li>Checked reported bugs against RFCs and technical documentation before fixing them.</li>
+              <li>Debugged several software layers and delivered stability patches.</li>
+              <li>Unit, regression, functional and performance testing; code reviews; daily Agile meetings.</li>
+              <li>Wrote and updated technical documentation.</li>
+            </ul>
+          </details>
+          <div class="tags"><span class="tag">OpenSync</span><span class="tag">Plume</span><span class="tag">OpenWrt</span><span class="tag">Broadcom</span><span class="tag">Docker</span><span class="tag">IPv4 / IPv6</span><span class="tag">GitLab</span></div>
+        </div>
+      </article>
+
+      <article class="job">
+        <div class="meta">
+          <div class="when">Sep 2021 – May 2022 · Sfax, Tunisia</div>
+          <div class="co">Telnet</div>
+        </div>
+        <div>
+          <h3>Embedded C/C++ Software Engineer</h3>
+          <p class="sum">Embedded e-payment software for Ingenico US and Worldline, deployed in Walmart stores.</p>
+          <ul>
+            <li>Designed and built embedded services for a payment terminal: EMV, contactless and magnetic stripe.</li>
+            <li>Implemented card number validation with the Luhn algorithm.</li>
+            <li>Analysed customer issues, fixed bugs and helped migrate features from C to C++.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="job">
+        <div class="meta">
+          <div class="when">2019 – 2021 · Tunisia</div>
+          <div class="co">Internships</div>
+        </div>
+        <div>
+          <ul>
+            <li><b>NLP Engineer Intern, 3S Standard Sharing Software</b> (2021). Built an intelligent chatbot for Globalnet and compared intent and sentiment classifiers with PyTorch, Transformers and CamemBERT.</li>
+            <li><b>Web Developer Intern, SQOIN</b> (2020). Built the back office of a vehicle sales website with Angular and a REST API.</li>
+            <li><b>Web Developer Intern, RINC Technologies</b> (2019). Built a website with OctoberCMS.</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sh"><h2>Who I work with</h2><p>Customers I've supported at Qualcomm, and the operators whose gateways I've built software for.</p></div>
+    <p class="customers">NETGEAR, AT&amp;T, T-Mobile, Vodafone, ZTE, Sagemcom, Ericsson, Vantiva, Compal, Sercomm, Inseego, Zyxel, Askey, WNC, MeiG Smart, <span>and earlier</span> Charter Communications <span>and</span> Bouygues Telecom.</p>
+  </div>
+</section>
+
+<section id="certifications" class="alt">
+  <div class="wrap">
+    <div class="sh"><h2>Certifications</h2><p>Wireless networking first, with a steady habit of learning around it.</p></div>
+    <div class="certs">
+      <img class="certimg" src="img/cwna.jpg" alt="CWNA certificate for Siwar Bel Haj Mohamed" data-lb>
+      <div>
+        <div class="main-cert">
+          <span class="status ok">Certified</span>
+          <h3>CWNA, Certified Wireless Network Administrator</h3>
+          <p>CWNP, issued September 2025, valid until September 2028</p>
+        </div>
+        <div class="main-cert">
+          <span class="status wip">In progress</span>
+          <h3>CWSP, Certified Wireless Security Professional</h3>
+          <p>CWNP, preparation course completed January 2026</p>
+        </div>
+        <div class="main-cert">
+          <span class="status ok">Certified</span>
+          <h3>Cisco CCNA I and CCNA II</h3>
+          <p>Network Associate, Routing and Switching, 2020</p>
+        </div>
+        <ul class="list">
+          <li>AI Techniques for Networking<span>LinkedIn, 2026</span></li>
+          <li>The Ultimate WLAN and Wi-Fi Training<span>Udemy, 2025</span></li>
+          <li>Introduction to Git and GitHub<span>Google, 2023</span></li>
+          <li>C Programming: Getting Started<span>Coursera, 2023</span></li>
+          <li>C for Everyone<span>UC Santa Cruz, 2022</span></li>
+          <li>TOEIC<span>ETS, 2022</span></li>
+          <li>NLP with Classification and Vector Spaces<span>DeepLearning.AI, 2020</span></li>
+          <li>Big Data Engineer, Explorer Award<span>IBM, 2020</span></li>
+          <li>SupCom Programming Contest, 20th place<span>2019</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="sh"><h2>Projects</h2><p>Side projects on GitHub, from Wi-Fi experiments to games and machine learning.</p></div>
+    <div class="feat">
+      <a class="fp" href="https://github.com/siwarBM/easymesh-ai-steering" target="_blank" rel="noopener">
+        <span class="k">Python · Wi-Fi and AI</span>
+        <h3>EasyMesh AI steering</h3>
+        <p>Uses machine learning to decide which access point each client should join in a Wi-Fi EasyMesh network.</p>
+        <svg viewBox="0 0 100 100" aria-hidden="true"><g fill="none" stroke="#fff" stroke-width="3"><circle cx="20" cy="70" r="8"/><circle cx="80" cy="70" r="8"/><circle cx="50" cy="22" r="8"/><path d="M26 64 44 28M74 64 56 28M28 70h44"/></g></svg>
+      </a>
+      <a class="fp" href="https://github.com/siwarBM/openwrt-rpi4-hostapd-bringup" target="_blank" rel="noopener">
+        <span class="k">C · Embedded Linux</span>
+        <h3>OpenWrt on Raspberry Pi 4</h3>
+        <p>Board bring-up and a custom OpenWrt build with full hostapd support, turning a Pi into a configurable Wi-Fi access point.</p>
+        <svg viewBox="0 0 100 100" aria-hidden="true"><g fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"><rect x="22" y="56" width="56" height="26" rx="5"/><path d="M50 56V40M30 30a28 28 0 0 1 40 0M37 37a18 18 0 0 1 26 0"/></g></svg>
+      </a>
+    </div>
+    <ul class="minor">
+      <li><a href="https://github.com/siwarBM/Tcp_Server_Project-" target="_blank" rel="noopener"><b>TCP server</b><span>Client and server networking with sockets</span><em>C++</em></a></li>
+      <li><a href="https://github.com/siwarBM/IT-Chatbot" target="_blank" rel="noopener"><b>IT chatbot</b><span>NLP assistant for IT support questions</span><em>Python</em></a></li>
+      <li><a href="https://github.com/siwarBM/Chess_Game_SDL2-" target="_blank" rel="noopener"><b>Chess game</b><span>Playable chess built with SDL2</span><em>C</em></a></li>
+      <li><a href="https://github.com/siwarBM/Credit-Risk-Modeling" target="_blank" rel="noopener"><b>Credit risk modeling</b><span>Machine learning models that predict credit risk</span><em>Python</em></a></li>
+      <li><a href="https://github.com/siwarBM/Reviews-Classification" target="_blank" rel="noopener"><b>Reviews classification</b><span>Text classification of customer reviews</span><em>Python</em></a></li>
+    </ul>
+    <p style="margin-top:22px"><a href="https://github.com/siwarBM?tab=repositories" target="_blank" rel="noopener">All repositories on GitHub</a> · <a href="https://medium.com/@sbelhajmouhamed" target="_blank" rel="noopener">Articles on Medium</a></p>
+  </div>
+</section>
+
+<section id="events" class="alt">
+  <div class="wrap">
+    <div class="sh"><h2>On stage and on site</h2><p>Representing Qualcomm at industry events, and learning from its Wi-Fi experts.</p></div>
+
+    <article class="event">
+      <div class="pics">
+        <img src="img/booth.jpg" alt="Siwar at the Qualcomm stand at Network X" data-lb>
+        <img src="img/networkx-badge.jpg" alt="Network X exhibitor badge at the Qualcomm demo table" data-lb>
+      </div>
+      <div>
+        <div class="when">13–15 October 2026, Vienna</div>
+        <h3>Network X 2026</h3>
+        <p>With the Qualcomm Dragonwing team, I presented Qualcomm Wi-Fi 8 at Europe's leading broadband event, held alongside the Wireless Global Congress. Qualcomm showed Wi-Fi 8, fixed wireless access and AI-native home gateways with partners including gFiber, Inseego and NetComm.</p>
+      </div>
+    </article>
+
+    <article class="event flip">
+      <div class="pics">
+        <img src="img/prpl-badge.jpg" alt="prpl Summit 2026 badge, Qualcomm Technologies" data-lb>
+        <img src="img/prpl-summit.jpg" alt="prpl Summit sticker in the event hall" data-lb>
+      </div>
+      <div>
+        <div class="when">12–13 October 2026, Vienna</div>
+        <h3>prpl Summit 2026</h3>
+        <p>I represented Qualcomm Technologies and presented Wi-Fi 8 on prplOS, the open-source operating system for home gateways. The prpl Foundation brings operators and vendors together around open software for broadband devices, close to the OpenSync and EasyMesh work I've done throughout my career.</p>
+      </div>
+    </article>
+
+    <article class="event">
+      <div class="pics single">
+        <img src="img/india-training.jpg" alt="Siwar at the Qualcomm campus in India" data-lb>
+      </div>
+      <div>
+        <div class="when">December 2025, India</div>
+        <h3>Training with Qualcomm's Wi-Fi experts</h3>
+        <p>A three-week technical programme on Qualcomm Wi-Fi systems with the company's wireless experts in India, right after I joined.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section>
+  <div class="wrap three">
+    <div>
+      <h3>Education</h3>
+      <div class="edu"><b>Telecommunications Engineering degree</b><span>Sup'Com, Higher School of Communications of Tunis, 2018–2021. Specialty in digital services and AI.</span></div>
+      <div class="edu"><b>Pre-engineering diploma</b><span>IPEI Monastir, 2016–2018. Physics and chemistry, ranked in the top 6% nationally.</span></div>
+      <div class="edu"><b>Baccalaureate with honours</b><span>Experimental sciences, 2016.</span></div>
+    </div>
+    <div>
+      <h3>Skills</h3>
+      <div class="sk"><p>Wireless and networking</p><div class="tags"><span class="tag">Wi-Fi 5 to 8</span><span class="tag">EasyMesh</span><span class="tag">OpenSync</span><span class="tag">hostapd</span><span class="tag">TCP/IP</span><span class="tag">IPv6</span><span class="tag">QoS</span><span class="tag">Wireshark</span><span class="tag">Air capture</span></div></div>
+      <div class="sk"><p>Embedded and languages</p><div class="tags"><span class="tag">C</span><span class="tag">C++</span><span class="tag">Python</span><span class="tag">Shell</span><span class="tag">TCL</span><span class="tag">Linux kernel modules</span><span class="tag">OpenWrt</span><span class="tag">prplOS</span></div></div>
+      <div class="sk"><p>Tools</p><div class="tags"><span class="tag">Git</span><span class="tag">GitLab</span><span class="tag">Docker</span><span class="tag">Jira</span><span class="tag">Confluence</span><span class="tag">AWS EC2</span></div></div>
+      <div class="sk"><p>AI and data</p><div class="tags"><span class="tag">PyTorch</span><span class="tag">TensorFlow</span><span class="tag">Transformers</span><span class="tag">scikit-learn</span><span class="tag">NLP</span><span class="tag">Spark</span></div></div>
+    </div>
+    <div>
+      <h3>Languages</h3>
+      <ul class="list">
+        <li>Arabic<span>Native</span></li>
+        <li>French<span>Full professional</span></li>
+        <li>English<span>Professional working</span></li>
+        <li>Spanish<span>Elementary</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <h2>Let's talk Wi-Fi</h2>
+    <p>For Wi-Fi integration, embedded Linux or connectivity work, or simply to connect, send me an email.</p>
+    <a class="mail" href="mailto:sbelhajmouhamed@gmail.com">sbelhajmouhamed@gmail.com</a>
+    <div class="actions">
+      <a class="btn" href="https://www.linkedin.com/in/siwar-bel-haj-mohamed/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="https://github.com/siwarBM" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn" href="https://medium.com/@sbelhajmouhamed" target="_blank" rel="noopener">Medium</a>
+    </div>
+  </div>
+</section>
+<footer><div class="wrap">© 2026 Siwar Bel Haj Mohamed</div></footer>
+
+<div id="lb" role="dialog" aria-label="Enlarged photo"><img alt=""></div>
+
+<script>
+{
+  const G={w5:["Wi-Fi 5","var(--w5)"],w6:["Wi-Fi 6","var(--w6)"],w6e:["Wi-Fi 6E","var(--w6e)"],w7:["Wi-Fi 7","var(--w7)"],w8:["Wi-Fi 8","var(--w8)"]};
+  const roles=[
+    {who:"Telnet",sub:"E-payment, C/C++",a:2021.67,b:2022.37,g:[]},
+    {who:"Sagemcom",sub:"Charter gateways",a:2022.42,b:2024.25,g:["w5","w6","w6e","w7"]},
+    {who:"Bouygues Telecom",sub:"Home routers",a:2024.33,b:2025.75,g:["w5","w6","w6e","w7"]},
+    {who:"Qualcomm",sub:"Senior Engineer",a:2025.75,b:2026.9,g:["w7","w8"],live:true}
+  ];
+  const A=2021.5,B=2027,pct=v=>((v-A)/(B-A)*100).toFixed(2)+"%";
+  document.getElementById("legend").innerHTML=Object.values(G).map(([n,c])=>`<span><i style="background:${c}"></i>${n}</span>`).join("");
+  document.getElementById("rows").innerHTML=roles.map(r=>`<div class="row"><div class="who"><b>${r.who}</b><span>${r.sub}</span></div><div class="track"><div class="bar${r.g.length?"":" plain"}${r.live?" live":""}" style="left:${pct(r.a)};width:calc(${pct(r.b)} - ${pct(r.a)})" title="${r.g.map(k=>G[k][0]).join(", ")||"E-payment"}">${r.g.map(k=>`<i style="background:${G[k][1]}"></i>`).join("")}</div></div></div>`).join("");
+  document.getElementById("ticks").innerHTML=[2022,2023,2024,2025,2026].map(y=>`<span style="left:${pct(y)}">${y}</span>`).join("");
+
+  const lb=document.getElementById("lb"),li=lb.querySelector("img");
+  document.querySelectorAll("[data-lb]").forEach(i=>i.addEventListener("click",()=>{li.src=i.src;li.alt=i.alt;lb.classList.add("on")}));
+  lb.addEventListener("click",()=>lb.classList.remove("on"));
+  document.addEventListener("keydown",e=>{if(e.key==="Escape")lb.classList.remove("on")});
+}
+</script>
+</body>
+</html>
