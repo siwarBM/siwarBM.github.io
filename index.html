@@ -174,6 +174,16 @@ details.more ul{margin-top:8px}
 .minor em{font-style:normal;font-size:.85rem;color:var(--soft)}
 @media(max-width:760px){.feat{grid-template-columns:1fr}.minor a{grid-template-columns:1fr;gap:2px}}
 
+/* writing */
+.series{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-bottom:34px}
+.art{display:block;text-decoration:none;color:var(--text);border:1px solid var(--rule);border-radius:18px;padding:28px;background:var(--paper)}
+.art:hover{border-color:var(--link)}
+.art .k{font-size:.88rem;color:var(--muted)}
+.art h3{font:400 1.7rem/1.15 var(--serif);margin:10px 0}
+.art p{color:var(--muted)}
+#writing .minor a:hover{background:var(--paper)}
+@media(max-width:760px){.series{grid-template-columns:1fr}}
+
 /* events */
 .event{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:48px;align-items:center;margin-bottom:80px}
 .event:last-child{margin-bottom:0}
@@ -221,7 +231,7 @@ footer{background:var(--ink);color:#7f8ca3;font-size:.88rem;padding:26px 0;borde
   <div class="wrap">
     <a class="mark" href="#top">Siwar Bel Haj Mohamed</a>
     <nav aria-label="Sections">
-      <a href="#about">About</a><a href="#career">Career</a><a href="#certifications">Certifications</a><a href="#projects">Projects</a><a href="#events">Events</a><a href="#contact">Contact</a>
+      <a href="#about">About</a><a href="#career">Career</a><a href="#certifications">Certifications</a><a href="#projects">Projects</a><a href="#writing">Writing</a><a href="#events">Events</a><a href="#contact">Contact</a>
     </nav>
   </div>
 </header>
@@ -472,11 +482,38 @@ footer{background:var(--ink);color:#7f8ca3;font-size:.88rem;padding:26px 0;borde
       <li><a href="https://github.com/siwarBM/Credit-Risk-Modeling" target="_blank" rel="noopener"><b>Credit risk modeling</b><span>Machine learning models that predict credit risk</span><em>Python</em></a></li>
       <li><a href="https://github.com/siwarBM/Reviews-Classification" target="_blank" rel="noopener"><b>Reviews classification</b><span>Text classification of customer reviews</span><em>Python</em></a></li>
     </ul>
-    <p style="margin-top:22px"><a href="https://github.com/siwarBM?tab=repositories" target="_blank" rel="noopener">All repositories on GitHub</a> · <a href="https://medium.com/@sbelhajmouhamed" target="_blank" rel="noopener">Articles on Medium</a></p>
+    <p style="margin-top:22px"><a href="https://github.com/siwarBM?tab=repositories" target="_blank" rel="noopener">All repositories on GitHub</a></p>
   </div>
 </section>
 
-<section id="events" class="alt">
+<section id="writing" class="alt">
+  <div class="wrap">
+    <div class="sh"><h2>Writing</h2><p>Articles on Medium about Wi-Fi, embedded Linux, AI in networking, and lessons from my career.</p></div>
+    <div class="series">
+      <a class="art big" href="https://medium.com/@sbelhajmouhamed/teaching-my-home-wi-fi-to-think-why-im-adding-ai-to-easymesh-382fe826770a" target="_blank" rel="noopener">
+        <span class="k">Series: AI for EasyMesh · Part 1 · Aug 2026</span>
+        <h3>Teaching my home Wi-Fi to think: why I'm adding AI to EasyMesh</h3>
+        <p>The first part of a series on designing a machine-learning client steering system for mesh networks.</p>
+      </a>
+      <a class="art big" href="https://medium.com/@sbelhajmouhamed/part-2-a-simulated-mesh-a-lazy-phone-and-1-800-seconds-of-data-8f4d2b336580" target="_blank" rel="noopener">
+        <span class="k">Series: AI for EasyMesh · Part 2 · Nov 2026</span>
+        <h3>A simulated mesh, a lazy phone and 1,800 seconds of data</h3>
+        <p>Can a machine-learning model handle Wi-Fi clients better than a fixed signal threshold? Testing the idea on real data.</p>
+      </a>
+    </div>
+    <ul class="minor">
+      <li><a href="https://medium.com/@sbelhajmouhamed/building-a-custom-openwrt-image-with-full-hostapd-for-raspberry-pi-4-0dddd3550817" target="_blank" rel="noopener"><b>Building a custom OpenWrt image with full hostapd for Raspberry Pi 4</b><span>A step-by-step guide with real problems and their fixes</span><em>Jan 2026</em></a></li>
+      <li><a href="https://medium.com/@sbelhajmouhamed/openwrt-on-raspberry-pi-4-part-2-from-it-wont-boot-to-a-working-access-point-c377ef8076b9" target="_blank" rel="noopener"><b>OpenWrt on Raspberry Pi 4, part 2: from "it won't boot" to a working access point</b><span>Getting the custom image running as a real Wi-Fi access point</span><em>Feb 2026</em></a></li>
+      <li><a href="https://medium.com/@sbelhajmouhamed/the-ghost-in-the-vlan-ai-and-the-self-healing-network-ce4c2b023394" target="_blank" rel="noopener"><b>The ghost in the VLAN: AI and the self-healing network</b><span>How AI is changing the way networks detect and fix their own problems</span><em>Apr 2026</em></a></li>
+      <li><a href="https://medium.com/@sbelhajmouhamed/your-brain-is-a-prediction-machine-so-is-ai-df71af5c3653" target="_blank" rel="noopener"><b>Your brain is a prediction machine. So is AI.</b><span>What human prediction and machine learning have in common</span><em>Nov 2026</em></a></li>
+      <li><a href="https://medium.com/@sbelhajmouhamed/5-things-i-wish-i-knew-before-starting-my-it-career-46d8a888c6dc" target="_blank" rel="noopener"><b>5 things I wish I knew before starting my IT career</b><span>Advice for engineers at the start of their careers</span><em>Apr 2026</em></a></li>
+      <li><a href="https://medium.com/@sbelhajmouhamed/how-to-succeed-in-your-interview-8c7b2194d01a" target="_blank" rel="noopener"><b>How to succeed in your interview</b><span>A guide from someone who has sat on both sides of the table</span><em>Apr 2026</em></a></li>
+    </ul>
+    <p style="margin-top:22px"><a href="https://medium.com/@sbelhajmouhamed" target="_blank" rel="noopener">Follow me on Medium</a></p>
+  </div>
+</section>
+
+<section id="events">
   <div class="wrap">
     <div class="sh"><h2>On stage and on site</h2><p>Representing Qualcomm at industry events, and learning from its Wi-Fi experts.</p></div>
 
